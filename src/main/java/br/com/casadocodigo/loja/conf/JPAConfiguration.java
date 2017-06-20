@@ -21,11 +21,8 @@ public class JPAConfiguration {
 				new LocalContainerEntityManagerFactoryBean();
 		
 		factoryBean.setJpaVendorAdapter( new HibernateJpaVendorAdapter() );
-		
 		factoryBean.setDataSource( this.getDataSource() );
-		
 		factoryBean.setJpaProperties( this.getHibernateProperties() );
-		
 		factoryBean.setPackagesToScan("br.com.casadocodigo.loja.models");
 		
 		return factoryBean;
