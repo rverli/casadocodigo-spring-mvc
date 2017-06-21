@@ -77,4 +77,15 @@ public class ProdutosController {
 		return modelAndView;
 	}
 	
+	@RequestMapping("/detalhe")
+	public ModelAndView detalhe( Integer id ) {
+		
+		ModelAndView modelAndView = new ModelAndView("produtos/detalhe");
+		
+		Produto prod = produtoDAO.getById(id);
+		
+		modelAndView.addObject("produto", prod);
+		
+		return modelAndView;
+	}
 }
