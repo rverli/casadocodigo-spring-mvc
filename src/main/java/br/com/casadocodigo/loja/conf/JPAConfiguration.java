@@ -30,10 +30,13 @@ public class JPAConfiguration {
 	
 	private DriverManagerDataSource getDataSource() {
 		
-		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setUsername("hermes");
-        dataSource.setPassword("");
-        dataSource.setUrl("jdbc:mysql://10.0.0.28:3306/casadocodigo");
+		DriverManagerDataSource dataSource = new DriverManagerDataSource();        
+        //dataSource.setUrl("jdbc:mysql://10.0.0.28:3306/casadocodigo");
+        //dataSource.setUsername("hermes");
+        //dataSource.setPassword("");
+        dataSource.setUrl("jdbc:mysql://mysql-dev.cidymiujtuou.us-east-2.rds.amazonaws.com:3306/casadocodigo");
+        dataSource.setUsername("root");
+        dataSource.setPassword("administrador");
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		return dataSource;
 	}
