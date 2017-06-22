@@ -1,6 +1,7 @@
 package br.com.casadocodigo.loja.models;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -14,6 +15,7 @@ import javax.persistence.Lob;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
+//@Proxy(lazy = true)
 public class Produto {
 
 	@Id 
@@ -31,8 +33,8 @@ public class Produto {
 	
 	private String sumarioPath;
 	
-	@ElementCollection
-	private List<Preco> precos;
+	@ElementCollection	
+	private List<Preco> precos = new ArrayList<>();
 	
 	public String getTitulo() {
 		return titulo;
@@ -138,10 +140,21 @@ public class Produto {
 	}
 	
 	public BigDecimal precoPara(TipoPreco tipoPreco) {
-		return precos.stream()
-					 .filter( preco -> preco.getTipo().equals(tipoPreco))
-					 .findFirst()
-					 .get()
-					 .getValor();
+		
+		if (precos != null && precos.size() > 0) {
+			
+			for (Preco preco2 : precos) {
+				System.out.println(preco2.getValor());
+				System.out.println(preco2.getTipoPreco());
+			}
+		}
+		
+		BigDecimal b = precos.stream()
+					 		 .filter( preco -> preco.getTipoPreco().equals(tipoPreco))
+					 		 .findFirst()
+					 		 .get()
+					 		 .getValor();
+		
+		return b;
 	}
 }

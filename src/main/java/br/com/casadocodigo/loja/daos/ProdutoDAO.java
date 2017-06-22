@@ -32,7 +32,7 @@ public class ProdutoDAO {
 				      .getSingleResult();
 	}
 
-	public Produto find(Integer produtoId) {
-		return manager.find(Produto.class, produtoId);
-	}
+	//public Produto find(Integer produtoId) {
+	//	return manager.find(Produto.class, produtoId);
+	//}
 }

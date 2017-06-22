@@ -41,7 +41,7 @@
 			<div>
 				<label>${tipoPreco}</label>
 				<form:input path="precos[${status.index}].valor"/>
-				<form:hidden path="precos[${status.index}].tipo" value="${tipoPreco}"/>
+				<form:hidden path="precos[${status.index}].tipoPreco" value="${tipoPreco}"/>
 			</div>
 		</c:forEach>
 		

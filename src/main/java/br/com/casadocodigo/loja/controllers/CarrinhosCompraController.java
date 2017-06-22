@@ -1,5 +1,7 @@
 package br.com.casadocodigo.loja.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -11,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import br.com.casadocodigo.loja.daos.ProdutoDAO;
 import br.com.casadocodigo.loja.models.CarrinhoCompras;
 import br.com.casadocodigo.loja.models.CarrinhoItem;
+import br.com.casadocodigo.loja.models.Preco;
 import br.com.casadocodigo.loja.models.Produto;
 import br.com.casadocodigo.loja.models.TipoPreco;
 
@@ -44,7 +47,14 @@ public class CarrinhosCompraController {
 	
 	private CarrinhoItem criaItem(Integer produtoId, TipoPreco tipoPreco) {
 
-		Produto produto = produtoDAO.find(produtoId);
+		Produto produto = produtoDAO.getById(produtoId);
+		
+		List<Preco> p = produto.getPrecos();
+		
+		for (Preco preco : p) {
+			System.out.println(preco.getTipoPreco());
+			System.out.println(preco.getValor());
+		}
 		
 		CarrinhoItem carrinhoItem = new CarrinhoItem(produto, tipoPreco);
 		
