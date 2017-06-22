@@ -93,7 +93,9 @@
 			          <td class="item-title">${item.produto.titulo}</td>
 			          <td class="numeric-cell">${item.preco}</td>
 			          <td class="quantity-input-cell">
-			          	<input type="number" min="0" readonly="readonly" id="quantidade" name="quantidade" value="${carrinhoCompras.getQuantidade(item)}"/></td>
+			          
+			          	<input type="number" min="0" readonly="readonly" id="quantidade" name="quantidade" value="${carrinhoCompras.getQuantidade()}"/></td>
+			          	
 			          <td class="numeric-cell">${carrinhoCompras.getTotal(item)}</td>
 			          <td class="remove-item">
 			          	

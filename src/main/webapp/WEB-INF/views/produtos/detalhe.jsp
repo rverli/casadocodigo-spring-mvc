@@ -98,10 +98,9 @@
 	    	<c:forEach items="${produto.precos}" var="preco">
 	    
 		    	  <li class="buy-option">
-		    	  
-		    	  
-		    	  
+		    	  		    	  
 		    	  	<input type="radio" name="tipoP" class="variant-radio" id="tipoP" value="${preco.tipoPreco}"  checked="checked"  />
+		    	  	
 		            <label  class="variant-label">
 		              ${preco.tipoPreco}
 		            </label>

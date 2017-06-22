@@ -29,11 +29,13 @@ public class CarrinhosCompraController {
 	private CarrinhoCompras carrinho;
 	
 	@RequestMapping("/add")
-	public ModelAndView add( Integer produtoId, TipoPreco tipoPreco ) {
+	public ModelAndView add( Integer produtoId, TipoPreco tipoP ) {
 		
 		ModelAndView modelAndView = new ModelAndView("redirect:/carrinho");
 		
-		CarrinhoItem carrinhoItem = this.criaItem(produtoId, tipoPreco);
+		System.out.println(tipoP);
+		
+		CarrinhoItem carrinhoItem = this.criaItem(produtoId, tipoP);
 		
 		carrinho.add(carrinhoItem);
 		
@@ -48,13 +50,6 @@ public class CarrinhosCompraController {
 	private CarrinhoItem criaItem(Integer produtoId, TipoPreco tipoPreco) {
 
 		Produto produto = produtoDAO.getById(produtoId);
-		
-		List<Preco> p = produto.getPrecos();
-		
-		for (Preco preco : p) {
-			System.out.println(preco.getTipoPreco());
-			System.out.println(preco.getValor());
-		}
 		
 		CarrinhoItem carrinhoItem = new CarrinhoItem(produto, tipoPreco);
 		
